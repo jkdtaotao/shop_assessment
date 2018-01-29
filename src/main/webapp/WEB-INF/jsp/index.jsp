@@ -60,7 +60,7 @@
                 </tr>
                 <c:forEach items="${stock.orders}" var="order" varStatus="status">
                     <tr>
-                        <td align="center">${status.count}</td>
+                        <td align="left">${status.count}</td>
                         <td><input name="orders[${status.index}].name" value="${order.name}" readonly/></td>
                         <td><input name="orders[${status.index}].quantity" value="1"/></td>
                     </tr>

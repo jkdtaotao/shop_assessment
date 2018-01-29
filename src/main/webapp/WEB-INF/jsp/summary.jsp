@@ -45,7 +45,7 @@
             </tr>
             <c:forEach items="${orderForm.orders}" var="order" varStatus="status">
                 <tr>
-                    <td align="center">${status.count}</td>
+                    <td align="left">${status.count}</td>
                     <td>${order.name}</td>
                     <td>${order.quantity}</td>
                     <td>${order.status}</td>
