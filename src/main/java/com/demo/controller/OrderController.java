@@ -25,7 +25,7 @@ public class OrderController {
 	@GetMapping("/")
 	public ModelAndView init() {
 	    Stock stock = new Stock();
-        stock.setOrders(stockService.getOrders());
+        stock.setItems(stockService.getOrders());
         return new ModelAndView("index" , "stock", stock);
     }
 

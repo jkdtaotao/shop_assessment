@@ -2,24 +2,25 @@ package com.demo.dto;
 
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class Order {
+public class Item {
 
     @NotNull
     private String name;
 
-    @NumberFormat @Min(0) @Max(9999)
+    @Digits(integer=10, fraction=0) @Min(1) @Max(9999)
     private Integer quantity;
 
     private String status;
 
-    public Order() {
+    public Item() {
     }
 
-    public Order(String name, Integer quantity) {
+    public Item(String name, Integer quantity) {
         this.name = name;
         this.quantity = quantity;
     }
@@ -50,7 +51,7 @@ public class Order {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Order{");
+        final StringBuffer sb = new StringBuffer("Item{");
         sb.append("name='").append(name).append('\'');
         sb.append(", quantity=").append(quantity);
         sb.append(", status='").append(status).append('\'');

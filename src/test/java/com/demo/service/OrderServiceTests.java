@@ -1,6 +1,6 @@
 package com.demo.service;
 
-import com.demo.dto.Order;
+import com.demo.dto.Item;
 import com.demo.dto.OrderForm;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,9 +34,9 @@ public class OrderServiceTests {
 
     @Before
     public void init(){
-        List<Order> orders = new ArrayList<>();
-        orders.add(new Order(A, INIT_NUMBER_20));
-        orders.add(new Order(B, INIT_NUMBER_10));
+        List<Item> orders = new ArrayList<>();
+        orders.add(new Item(A, INIT_NUMBER_20));
+        orders.add(new Item(B, INIT_NUMBER_10));
         stockService.setOrders(orders);
     }
 
@@ -44,8 +44,8 @@ public class OrderServiceTests {
     public void orderServiceOrderSuccess() throws Exception {
         OrderForm inputOrderData = generateInputOrderForm(11,9);
         OrderForm result = orderService.order(inputOrderData);
-        Map<String, Integer> orderResultMap = result.getOrders().stream().collect(
-                Collectors.toMap(Order::getName, Order::getQuantity));
+        Map<String, Integer> orderResultMap = result.getItems().stream().collect(
+                Collectors.toMap(Item::getName, Item::getQuantity));
         Assert.assertEquals(11, java.util.Optional.ofNullable(orderResultMap.get(A)).get().intValue());
         Assert.assertEquals(9, java.util.Optional.ofNullable(orderResultMap.get(B)).get().intValue());
     }
@@ -54,18 +54,18 @@ public class OrderServiceTests {
     public void orderServiceOrderOutOfStock() throws Exception {
         OrderForm inputOrderData = generateInputOrderForm(11,11);
         OrderForm result = orderService.order(inputOrderData);
-        Map<String, Integer> orderResultMap = result.getOrders().stream().collect(
-                Collectors.toMap(Order::getName, Order::getQuantity));
+        Map<String, Integer> orderResultMap = result.getItems().stream().collect(
+                Collectors.toMap(Item::getName, Item::getQuantity));
         Assert.assertEquals(11, java.util.Optional.ofNullable(orderResultMap.get(A)).get().intValue());
         Assert.assertEquals(0, java.util.Optional.ofNullable(orderResultMap.get(B)).get().intValue());
     }
 
     private OrderForm generateInputOrderForm(int aOrderCount, int bOrderCount) {
         OrderForm inputOrderData = new OrderForm();
-        List<Order> orders = new ArrayList<>();
-        orders.add(new Order(A,aOrderCount));
-        orders.add(new Order(B,bOrderCount));
-        inputOrderData.setOrders(orders);
+        List<Item> orders = new ArrayList<>();
+        orders.add(new Item(A,aOrderCount));
+        orders.add(new Item(B,bOrderCount));
+        inputOrderData.setItems(orders);
         return inputOrderData;
     }
 }

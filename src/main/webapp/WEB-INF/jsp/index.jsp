@@ -39,10 +39,10 @@
                 <th>Name</th>
                 <th>Stock</th>
             </tr>
-            <c:forEach items="${stock.orders}" var="order">
+            <c:forEach items="${stock.items}" var="item">
                 <tr>
-                    <td>Item ${order.name}:</td>
-                    <td>${order.quantity} left</td>
+                    <td>Item ${item.name}:</td>
+                    <td>${item.quantity} left</td>
                 </tr>
             </c:forEach>
         </table>
@@ -58,11 +58,11 @@
                     <th>Name</th>
                     <th>Quantity</th>
                 </tr>
-                <c:forEach items="${stock.orders}" var="order" varStatus="status">
+                <c:forEach items="${stock.items}" var="item" varStatus="status">
                     <tr>
                         <td align="left">${status.count}</td>
-                        <td><input name="orders[${status.index}].name" value="${order.name}" readonly/></td>
-                        <td><input name="orders[${status.index}].quantity" value="1"/></td>
+                        <td><input name="items[${status.index}].name" value="${item.name}" readonly/></td>
+                        <td><input name="items[${status.index}].quantity" value="1"/></td>
                     </tr>
                 </c:forEach>
             </table>

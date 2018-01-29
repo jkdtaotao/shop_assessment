@@ -4,20 +4,20 @@ import java.util.List;
 
 public class Stock {
 
-    private List<Order> orders;
+    private List<Item> items;
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Stock{");
-        sb.append("orders=").append(orders);
+        sb.append("items=").append(items);
         sb.append('}');
         return sb.toString();
     }

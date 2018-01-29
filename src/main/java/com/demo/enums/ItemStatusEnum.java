@@ -1,13 +1,13 @@
 package com.demo.enums;
 
-public enum OrderStatusEnum {
+public enum ItemStatusEnum {
 
         SUCCESS("S","SUCCESS"),
         OUT_OF_STOCK("F","OUT OF STOCK");
 
         private String code, name;
 
-        OrderStatusEnum(String code, String name){
+        ItemStatusEnum(String code, String name){
             this.code = code;
             this.name = name;
         }
@@ -30,7 +30,7 @@ public enum OrderStatusEnum {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("OrderStatusEnum{");
+        final StringBuffer sb = new StringBuffer("ItemStatusEnum{");
         sb.append("code='").append(code).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append('}');

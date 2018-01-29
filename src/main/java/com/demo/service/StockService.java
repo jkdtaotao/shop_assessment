@@ -1,6 +1,6 @@
 package com.demo.service;
 
-import com.demo.dto.Order;
+import com.demo.dto.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,22 +8,22 @@ import java.util.List;
 
 @Service
 public class StockService {
-    private static List<Order> orders = new ArrayList<>();
+    private static List<Item> items = new ArrayList<>();
     public static final String A = "A";
     public static final String B = "B";
     public static final int INIT_NUMBER_20 = 20;
     public static final int INIT_NUMBER_10 = 10;
 
     static {
-        orders.add(new Order(A, INIT_NUMBER_20));
-        orders.add(new Order(B, INIT_NUMBER_10));
+        items.add(new Item(A, INIT_NUMBER_20));
+        items.add(new Item(B, INIT_NUMBER_10));
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<Item> getOrders() {
+        return items;
     }
 
-    public void setOrders(List<Order> orders) {
-        StockService.orders = orders;
+    public void setOrders(List<Item> items) {
+        StockService.items = items;
     }
 }

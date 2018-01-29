@@ -43,12 +43,12 @@
                 <th>Count</th>
                 <th>status</th>
             </tr>
-            <c:forEach items="${orderForm.orders}" var="order" varStatus="status">
+            <c:forEach items="${orderForm.items}" var="item" varStatus="status">
                 <tr>
                     <td align="left">${status.count}</td>
-                    <td>${order.name}</td>
-                    <td>${order.quantity}</td>
-                    <td>${order.status}</td>
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.status}</td>
                 </tr>
             </c:forEach>
         </table>
